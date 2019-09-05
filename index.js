@@ -8,42 +8,14 @@ const bot = new Discord.Client();
 
 const idTommy = process.env.USER_ID;
 
-var possibleMessage = ['tom?','Tom?', 
-						'tOm?','TOm?',
-						'toM?','ToM?',
-						'tOM?','TOM?',
-						'thom?','Thom?',
-						'tHom?','THom?',
-						'thOm?','THOm?',
-						'thoM?','THoM?',
-						'thOM?','THOM?',
-						'ThOm?','ThOM?',
-						'ThoM?','tHoM?',
-						'tHOm?',
-						't0m?','T0m?',
-						't0M?','T0M?',
-						'th0m?','Th0m?',
-						'tH0m?','TH0m?',
-						'th0M?','TH0M?',
-						'tH0M?','Th0M?',
-						'tom','Tom', 
-						'tOm','TOm',
-						'toM','ToM',
-						'tOM','TOM',
-						'thom','Thom',
-						'tHom','THom',
-						'thOm','THOm',
-						'thoM','THoM',
-						'thOM','THOM',
-						'ThOm','ThOM',
-						'ThoM','tHoM',
-						'tHOm',
-						't0m','T0m',
-						't0M','T0M',
-						'th0m','Th0m',
-						'tH0m','TH0m',
-						'th0M','TH0M',
-						'tH0M','Th0M',
+var possibleMessage = ['tom?',
+						'thom?',
+						't0m?',
+						'th0m?',
+						'tom',
+						'thom',
+						't0m',
+						'th0m',
 						];
 
 bot.on('ready', () => {
@@ -55,7 +27,7 @@ bot.on('ready', () => {
 bot.on('message',(msg) => {
 	if(msg.author.id != process.env.BOT_ID){
 		for(var i=0; i<possibleMessage.length; i++){
-			if(msg.content.includes(possibleMessage[i])){
+			if(msg.content.toLowerCase().includes(possibleMessage[i])){
 				msg.channel.send('<@'+idTommy+'>' + ' ' + '<:tom:606500335338520685>');
 				return;
 			}
